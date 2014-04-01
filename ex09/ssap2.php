@@ -122,41 +122,43 @@ function		ft_check_swap($a, $b)
 	return (true);
 }
 
-$i = 1;
-$k = 0;
-while ($i < $argc)
+if ($argc > 1)
 {
-	$tmp = ft_split($argv[$i]);
-	$len_tmp = count($tmp);
-	$j = 0;
-	while ($j < $len_tmp)
+	$i = 1;
+	$k = 0;
+	while ($i < $argc)
 	{
-		$split[$k] = $tmp[$j];
-		$j++;
-		$k++;
-	}
-	$i++;
-}
-
-$len = count($split);
-$change = true;
-while ($change)
-{
-	$change = false;
-	$i = 0;
-	while ($i < $len - 1)
-	{
-		if (ft_check_swap($split[$i], $split[$i + 1]))
+		$tmp = ft_split($argv[$i]);
+		$len_tmp = count($tmp);
+		$j = 0;
+		while ($j < $len_tmp)
 		{
-			$tmp = $split[$i];
-			$split[$i] = $split[$i + 1];
-			$split[$i + 1] = $tmp;
-			$change = true;
+			$split[$k] = $tmp[$j];
+			$j++;
+			$k++;
 		}
 		$i++;
 	}
+	
+	$len = count($split);
+	$change = true;
+	while ($change)
+	{
+		$change = false;
+		$i = 0;
+		while ($i < $len - 1)
+		{
+			if (ft_check_swap($split[$i], $split[$i + 1]))
+			{
+				$tmp = $split[$i];
+				$split[$i] = $split[$i + 1];
+				$split[$i + 1] = $tmp;
+				$change = true;
+			}
+			$i++;
+		}
+	}
+	foreach ($split as $value)
+		print($value."\n");
 }
-foreach ($split as $value)
-	print($value."\n");
-
 ?>
