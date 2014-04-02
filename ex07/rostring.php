@@ -24,8 +24,13 @@ if ($argc > 1)
 	$tmp = ft_split($argv[1]);
 	$tmp[count($tmp)] = $tmp[0];
 	array_shift($tmp);
-	foreach ($tmp as $value)
-		print($value." ");
+	foreach ($tmp as $key => $value)
+	{
+		if ($key == 0)
+			print($value);
+		else
+			print(" ".$value);
+	}
 	print("\n");
 }
 

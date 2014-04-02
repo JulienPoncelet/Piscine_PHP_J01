@@ -19,23 +19,25 @@ function ft_split($str)
 	return $split;
 }
 
-$i = 1;
-$k = 0;
-while ($i < $argc)
+if ($argc > 1)
 {
-	$tmp = ft_split($argv[$i]);
-	$len_tmp = count($tmp);
-	$j = 0;
-	while ($j < $len_tmp)
+	$i = 1;
+	$k = 0;
+	while ($i < $argc)
 	{
-		$split[$k] = $tmp[$j];
-		$j++;
-		$k++;
+		$tmp = ft_split($argv[$i]);
+		$len_tmp = count($tmp);
+		$j = 0;
+		while ($j < $len_tmp)
+		{
+			$split[$k] = $tmp[$j];
+			$j++;
+			$k++;
+		}
+		$i++;
 	}
-	$i++;
+	sort($split);
+	foreach($split as $value)
+		print($value."\n");
 }
-sort($split);
-foreach($split as $value)
-	print($value."\n");
-
 ?>
