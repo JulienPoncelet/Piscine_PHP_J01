@@ -11,8 +11,7 @@ echo "\nex01 :\n";
 diff ./ex01_0_test ./ex01_0_user | cat -e;
 
 echo "\nex02 :\n";
-echo "Pliz enter : '42; 0; ; toto; 21; 99cosmos; CTRL-D'\n";
-../ex02/oddeven.php > ex02_0_user | cat -e;
+../ex02/oddeven.php < ex02_input > ex02_0_user | cat -e;
 diff ./ex02_0_test ./ex02_0_user | cat -e;
 
 echo "\nex04 :\n";
