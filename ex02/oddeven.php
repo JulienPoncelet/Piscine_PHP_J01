@@ -22,6 +22,7 @@ while ($stdin && !feof($stdin))
 		echo "\n";
 	}
 }
+print("\n");
 fclose($stdin);
 
 ?>
