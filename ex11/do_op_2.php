@@ -29,35 +29,24 @@ function			ft_modulo($a, $b)
 if ($argc == 2)
 {
 	$ope = explode(";", "+;-;*;/;%");
+	$done = false;
 
-	foreach ($ope as $value)
+	$test = sscanf($argv[1], "%d %c %d %s");
+	if ($test[0] && $test[1] && $test[2] && !$test[3])
 	{
-		$tmp = explode($value, $argv[1]);
-		if (count($tmp) == 2)
-		{
-			$tmp[0] = trim($tmp[0]);
-			$tmp[1] = trim($tmp[1]);
-			if (is_numeric($tmp[0]) && is_numeric($tmp[1]))
-			{
-				if (!strcmp("+", $value))
-					print(ft_add($tmp[0], $tmp[1]));
-				if (!strcmp("-", $value))
-					print(ft_minus($tmp[0], $tmp[1]));
-				if (!strcmp("*", $value))
-					print(ft_mult($tmp[0], $tmp[1]));
-				if (!strcmp("/", $value))
-					print(ft_div($tmp[0], $tmp[1]));
-				if (!strcmp("%", $value))
-					print(ft_modulo($tmp[0], $tmp[1]));
-			}
-			else
-			{
-				print("Syntax Error");
-				break ;
-			}
-		}
+		if (!strcmp("+", $test[1]))
+			print(ft_add($test[0], $test[2]));
+		if (!strcmp("-", $test[1]))
+			print(ft_minus($test[0], $test[2]));
+		if (!strcmp("*", $test[1]))
+			print(ft_mult($test[0], $test[2]));
+		if (!strcmp("/", $test[1]))
+			print(ft_div($test[0], $test[2]));
+		if (!strcmp("%", $test[1]))
+			print(ft_modulo($test[0], $test[2]));
 	}
-
+	else
+		print("Syntax Error");
 }
 else
 	print("Incorrect Parameters");
